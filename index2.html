@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document of vue js</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .box{
+        padding: 100px;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+</head>
+<body>
+    <h1>Hellow Vue: index2.html File</h1>
+
+<div id="app">  <!-- DOM --------------------------------------------------------------------------------->
+<p>{{ title }}</p>
+<br>
+<p> {{  message  }} - {{ title }} - {{  name  }} - {{  age  }} </p> 
+<button v-on:click="age++">Increase Age</button>
+<button v-on:click="age--">Decrease Age</button>
+<!--<div @click="name='Katawazai' ">Change Name</div>-->
+
+
+<div v-if="show_hide_state"> 
+   {{  name  }}  
+   <div @click="changeNameFunction">Change Name</div>
+  </div>
+
+<button @click="toggleShowHideFunction">
+<span v-if="show_hide_state">Hide Name</span>
+<span v-if="!show_hide_state">Show Name</span>
+<!--<span v-if="show_hide_state == false">Show Name</span>-->
+</button>
+
+<br>
+<ul>
+  <li v-for="book in books_array">
+    <img v-bind:src="book.img" :alt="book.title">
+    
+    <h3> {{book.title}} </h3>
+    <p> {{book.author}} </p>
+  </li>
+</ul>
+
+<!--<p>{{ books_array[0].title }} - {{ books_array[0].author }}</p>
+<p>{{ books_array[1].title }} - {{ books_array[1].author }}</p>-->
+
+<a v-bind:href="url">data binding</a>
+<br>
+<div class="box" @mouseover="handleEvent">mouse over</div>
+<div class="box" @mouseleave="handleEvent">mouse leave</div>
+<div class="box" @dblclick="handleEvent">double click</div>
+<div class="box" @mousemove="handleMousemove"> Position- {{ x }} {{ y }}</div>
+
+
+
+</div><!-- DOM End---------------------------------------------------------------------------------------->
+    <script src="app.js"  lang="js" ></script>
+
+
+
+
+<!-- we can use javascrip inline too
+    <script>
+        const app = Vue.createApp({
+          data() {
+            return {
+              message: "Hello World! inner javaScript"
+            }
+          }
+        })
+       app.mount('#app')
+      </script>
+we can use javascrip inline too-------------------------->
+
+</body>
+</html>
