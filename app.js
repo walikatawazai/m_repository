@@ -10,9 +10,9 @@ const app = Vue.createApp({
         x:0,
         y:0,
         books_array: [
-            {title: 'Vue javascript book' , author: 'Wali' , img: 'assets/1.jpg' },
-            {title: 'React typescript book' , author: 'Naime' , img: 'assets/2.png' },
-            {title: 'angolar typescript book' , author: 'Farid' , img: 'assets/3.png' }
+            {title: 'Vue javascript book' , author: 'Wali' , img: 'assets/1.jpg' , isFav: true },
+            {title: 'React typescript book' , author: 'Naime' , img: 'assets/2.png' , isFav: false},
+            {title: 'angolar typescript book' , author: 'Farid' , img: 'assets/3.png' , isFav: true}
         ],
         url: 'https://www.youtube.com/watch?v=CYPZBK8zUik&list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1&index=3'
     }
@@ -32,6 +32,14 @@ const app = Vue.createApp({
         changeNameFunction(){
             this.name = 'Katawazai'
             //console.log('You Clicked me')s
+        },
+        toggleFav(book){
+            book.isFav = !book.isFav
+        }
+    },
+    computed:{
+        filteredBook_array(){
+            return this.books_array.filter((book) => book.isFav)
         }
     }
 
